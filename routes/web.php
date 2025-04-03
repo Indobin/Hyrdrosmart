@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 Route::middleware(['auth'])->group(function () {
-    Route::get('dasboard', function () {
-        return view('welcome');
+    Route::get('dashboard', function () {
+        return view('dashboard.index');
     });
 });
 
