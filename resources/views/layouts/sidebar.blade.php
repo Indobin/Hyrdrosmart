@@ -1,4 +1,4 @@
-<aside
+{{-- <aside
     class="fixed inset-y-0 left-0 z-30 w-64 h-screen overflow-y-auto text-white transition-transform
     duration-300 ease-in-out transform bg-green-500 lg:translate-x-0 lg:relative "
     id="sidebar">
@@ -59,41 +59,91 @@
             </x-nav-link>
         </li>
     </nav>
-</aside>
+</aside> --}}
 
-{{-- <script type="text/javascript">
-  function toggleDropdown(element) {
-      const submenu = element.nextElementSibling;
-      const arrow = element.querySelector("#arrow");
+<div class="sidebar bg-primary-800 text-white w-64 flex-shrink-0 md:translate-x-0 -translate-x-full md:static fixed h-full z-50 transition-transform duration-300 ease-in-out" id="sidebar">
+    <div class="p-4 flex items-center justify-between border-b border-primary-700">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-leaf text-2xl text-primary-300"></i>
+            <span class="text-xl font-bold">Green IoT</span>
+        </div>
+        <button id="sidebarClose" class="md:hidden block">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="p-4">
+        <div class="mb-8">
+            <h3 class="text-xs uppercase text-primary-300 font-semibold mb-4">Dashboard</h3>
+            <ul class="space-y-2">
+                <li>
+                    <a href="#" class="flex items-center space-x-2 p-2 rounded-lg bg-primary-700">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-primary-700">
+                        <i class="fas fa-thermometer-half"></i>
+                        <span>Sensors</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-primary-700">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Devices</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-primary-700">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="mb-8">
+            <h3 class="text-xs uppercase text-primary-300 font-semibold mb-4">Management</h3>
+            <ul class="space-y-2">
+                <li>
+                    <a href="#" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-primary-700">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-primary-700">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-primary-700">
+                        <i class="fas fa-bell"></i>
+                        <span>Alerts</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="p-4 bg-primary-700 rounded-lg">
+            <div class="text-sm mb-2">System Status</div>
+            <div class="flex items-center justify-between">
+                <div class="text-xs text-primary-200">All systems operational</div>
+                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+     // Sidebar toggle for mobile
+     const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarClose = document.getElementById('sidebarClose');
 
-      submenu.classList.toggle("hidden");
-      arrow.classList.toggle("rotate-180");
-  }
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
 
-  document.addEventListener('click', function (event) {
-      const dropdowns = document.querySelectorAll("#submenu");
-      const arrows = document.querySelectorAll("#arrow");
-
-      dropdowns.forEach((submenu, index) => {
-          const parentLink = submenu.previousElementSibling;
-          if (!parentLink.contains(event.target)) {
-              submenu.classList.add("hidden");
-              arrows[index].classList.remove("rotate-180");
-          }
-      });
-  });
-
-  const submenuLinks = document.querySelectorAll("#submenu a");
-  submenuLinks.forEach(link => {
-      link.addEventListener("click", function(event) {
-          event.stopPropagation();
-      });
-  });
+        sidebarClose.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+        });
 </script>
-
-<style>
-  .rotate-180 {
-      transform: rotate(180deg);
-  }
-</style> --}}
-
