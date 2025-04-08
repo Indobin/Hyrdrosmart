@@ -1,77 +1,229 @@
 @extends('layouts.app')
 @section('title', 'Beranda')
 @section('content')
-<div class="overflow-x-auto">
-    <h3 class="mt-12 mb-4 text-2xl font-bold">Selamat Datang, Admin!</h3>
-    <div class="grid grid-cols-1 gap-4 mb-4 md:grid-cols-2 lg:grid-cols-4">
-        <!-- Card for Jumlah Artikel Publish -->
-        <div class="flex items-center p-4 text-white bg-blue-500 rounded-lg shadow-md">
-            <div class="mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="white" stroke-width="2" stroke="currentColor" class="w-10 h-10">
-                    <path d="M96 96c0-35.3 28.7-64 64-64l288 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L80 480c-44.2 0-80-35.8-80-80L0 128c0-17.7 14.3-32 32-32s32 14.3 32 32l0 272c0 8.8 7.2 16 16 16s16-7.2 16-16L96 96zm64 24l0 80c0 13.3 10.7 24 24 24l112 0c13.3 0 24-10.7 24-24l0-80c0-13.3-10.7-24-24-24L184 96c-13.3 0-24 10.7-24 24zm208-8c0 8.8 7.2 16 16 16l48 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16l48 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0c-8.8 0-16 7.2-16 16zM160 304c0 8.8 7.2 16 16 16l256 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-256 0c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16l256 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-256 0c-8.8 0-16 7.2-16 16z"/>
-                 </svg>
+
+ <!-- Main Content -->
+ <div class="flex flex-col flex-1 overflow-hidden">
+    <!-- Top Navigation -->
+    <header class="z-10 bg-white shadow-sm">
+        <div class="flex items-center justify-between p-4">
+            <div class="flex items-center space-x-4">
+                <button id="sidebarToggle" class="block md:hidden">
+                    <i class="text-gray-600 fas fa-bars"></i>
+                </button>
+                <h1 class="text-xl font-semibold text-gray-800">IoT Monitoring</h1>
             </div>
-            <div>
-                <h4 class="text-lg font-semibold">Suhu Box</h4>
-                <p class="text-xl font-bold">l</p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-4 overflow-y-auto bg-gray-50">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 gap-4 mb-6 md:grid-cols-2 lg:grid-cols-4">
+            <div class="p-6 transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500">Temperature</p>
+                        <h3 class="text-2xl font-bold">24.5°C</h3>
+                        <p class="flex items-center text-sm text-green-500">
+                            <i class="mr-1 fas fa-arrow-up"></i> 2.3% from yesterday
+                        </p>
+                    </div>
+                    <div class="p-3 rounded-lg bg-primary-100 text-primary-600">
+                        <i class="text-xl fas fa-thermometer-half"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6 transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500">Humidity</p>
+                        <h3 class="text-2xl font-bold">65%</h3>
+                        <p class="flex items-center text-sm text-red-500">
+                            <i class="mr-1 fas fa-arrow-down"></i> 1.8% from yesterday
+                        </p>
+                    </div>
+                    <div class="p-3 text-blue-600 bg-blue-100 rounded-lg">
+                        <i class="text-xl fas fa-tint"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6 transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500">Energy Usage</p>
+                        <h3 class="text-2xl font-bold">1.2 kW</h3>
+                        <p class="flex items-center text-sm text-green-500">
+                            <i class="mr-1 fas fa-arrow-down"></i> 15% savings
+                        </p>
+                    </div>
+                    <div class="p-3 text-yellow-600 bg-yellow-100 rounded-lg">
+                        <i class="text-xl fas fa-bolt"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6 transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-500">Air Quality</p>
+                        <h3 class="text-2xl font-bold">Good</h3>
+                        <p class="flex items-center text-sm text-green-500">
+                            <i class="mr-1 fas fa-check-circle"></i> Optimal
+                        </p>
+                    </div>
+                    <div class="p-3 text-green-600 bg-green-100 rounded-lg">
+                        <i class="text-xl fas fa-wind"></i>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Card for Pilihan -->
-        <div class="flex items-center p-4 text-white bg-green-500 rounded-lg shadow-md">
-            <div class="mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white" stroke-width="2" stroke="currentColor" class="w-10 h-10">
-                    <path d="M416 0C400 0 288 32 288 176l0 112c0 35.3 28.7 64 64 64l32 0 0 128c0 17.7 14.3 32 32 32s32-14.3 32-32l0-128 0-112 0-208c0-17.7-14.3-32-32-32zM64 16C64 7.8 57.9 1 49.7 .1S34.2 4.6 32.4 12.5L2.1 148.8C.7 155.1 0 161.5 0 167.9c0 45.9 35.1 83.6 80 87.7L80 480c0 17.7 14.3 32 32 32s32-14.3 32-32l0-224.4c44.9-4.1 80-41.8 80-87.7c0-6.4-.7-12.8-2.1-19.1L191.6 12.5c-1.8-8-9.3-13.3-17.4-12.4S160 7.8 160 16l0 134.2c0 5.4-4.4 9.8-9.8 9.8c-5.1 0-9.3-3.9-9.8-9L127.9 14.6C127.2 6.3 120.3 0 112 0s-15.2 6.3-15.9 14.6L83.7 151c-.5 5.1-4.7 9-9.8 9c-5.4 0-9.8-4.4-9.8-9.8L64 16zm48.3 152l-.3 0-.3 0 .3-.7 .3 .7z"/>
-                </svg>
+        <!-- Charts Row -->
+        <div class="grid grid-cols-1 gap-6 mb-6 lg:grid-cols-3">
+            <!-- Temperature Chart -->
+            <div class="col-span-2 p-6 bg-white shadow-sm rounded-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-semibold">Temperature Trends</h2>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 text-sm rounded-lg bg-primary-100 text-primary-600">Day</button>
+                        <button class="px-3 py-1 text-sm rounded-lg hover:bg-gray-100">Week</button>
+                        <button class="px-3 py-1 text-sm rounded-lg hover:bg-gray-100">Month</button>
+                    </div>
+                </div>
+                <canvas id="temperatureChart" height="250"></canvas>
             </div>
-            <div>
-                <h4 class="text-lg font-semibold">Ph Tanah</h4>
-                <p class="text-xl font-bold">l</p>
+
+            <!-- Devices Status -->
+            <div class="p-6 bg-white shadow-sm rounded-xl">
+                <h2 class="mb-4 text-lg font-semibold">Devices Status</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-3 rounded-lg bg-gray-50">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-2 text-green-600 bg-green-100 rounded-lg">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Smart Lights</p>
+                                <p class="text-sm text-gray-500">Living Room</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 mr-2 bg-green-500 rounded-full"></div>
+                            <span class="text-sm">On</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 rounded-lg bg-gray-50">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-2 text-blue-600 bg-blue-100 rounded-lg">
+                                <i class="fas fa-thermostat"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Thermostat</p>
+                                <p class="text-sm text-gray-500">Bedroom</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 mr-2 bg-yellow-500 rounded-full"></div>
+                            <span class="text-sm">Idle</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 rounded-lg bg-gray-50">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-2 text-purple-600 bg-purple-100 rounded-lg">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Smart Lock</p>
+                                <p class="text-sm text-gray-500">Front Door</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 mr-2 bg-green-500 rounded-full"></div>
+                            <span class="text-sm">Locked</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-3 rounded-lg bg-gray-50">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-2 text-red-600 bg-red-100 rounded-lg">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Security Cam</p>
+                                <p class="text-sm text-gray-500">Backyard</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 mr-2 bg-red-500 rounded-full"></div>
+                            <span class="text-sm">Offline</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Card for Tipe -->
-        <div class="flex items-center p-4 text-white bg-yellow-500 rounded-lg shadow-md">
-            <div class="mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"   fill="white" stroke-width="2" stroke="currentColor" class="w-10 h-10">
-                    <path d="M0 192c0-35.3 28.7-64 64-64c.5 0 1.1 0 1.6 0C73 91.5 105.3 64 144 64c15 0 29 4.1 40.9 11.2C198.2 49.6 225.1 32 256 32s57.8 17.6 71.1
-                     43.2C339 68.1 353 64 368 64c38.7 0 71 27.5 78.4 64c.5 0 1.1 0 1.6 0c35.3 0 64 28.7 64 64c0 11.7-3.1 22.6-8.6 32L8.6 224C3.1
-                     214.6 0 203.7 0 192zm0 91.4C0 268.3 12.3 256 27.4 256l457.1 0c15.1 0 27.4 12.3 27.4 27.4c0 70.5-44.4 130.7-106.7 154.1L403.5
-                     452c-2 16-15.6 28-31.8 28l-231.5 0c-16.1 0-29.8-12-31.8-28l-1.8-14.4C44.4 414.1 0 353.9 0 283.4z"/></svg>
+        <!-- Second Row -->
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <!-- Humidity Chart -->
+            <div class="p-6 bg-white shadow-sm rounded-xl">
+                <h2 class="mb-4 text-lg font-semibold">Humidity Level</h2>
+                <div class="gauge">
+                    <div class="gauge-body">
+                        <div class="gauge-fill" id="humidityGauge"></div>
+                        <div class="gauge-cover">65%</div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-sm text-gray-500">Optimal range: 40% - 60%</p>
+                </div>
             </div>
-            <div>
-                    <h4 class="text-lg font-semibold">Kelembapan Tanah</h4>
-                <p class="text-xl font-bold">l</p>
-            </div>
-        </div>
 
-        <!-- Card for Kelompok Makanan -->
-        <div class="flex items-center p-4 text-white bg-red-500 rounded-lg shadow-md">
-            <div class="mr-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="white" stroke-width="2" stroke="currentColor" class="w-10 h-10">
-                    <path d="M345.7 48.3L358 34.5c5.4-6.1 13.3-8.8 20.9-8.9c7.2 0 14.3 2.6 19.9 7.8c19.7 18.3 39.8 43.2 55 70.6C469 131.2 480 162.2 480 192.2C480 280.8 408.7 352 320 352c-89.6 0-160-71.3-160-159.8c0-37.3 16-73.4 36.8-104.5c20.9-31.3 47.5-59 70.9-80.2C273.4 2.3 280.7-.2 288 0c14.1 .3 23.8 11.4 32.7 21.6c0 0 0 0 0 0c2 2.3 4 4.6 6 6.7l19 19.9zM384 240.2c0-36.5-37-73-54.8-88.4c-5.4-4.7-13.1-4.7-18.5 0C293 167.1 256 203.6 256 240.2c0 35.3 28.7 64 64 64s64-28.7 64-64zM32 288c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l0 64 448 0 0-64c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l0-96zM320 480a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm160-32a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM192 480a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
-                    </svg>
+            <!-- Energy Consumption -->
+            <div class="p-6 bg-white shadow-sm rounded-xl">
+                <h2 class="mb-4 text-lg font-semibold">Energy Consumption</h2>
+                <canvas id="energyChart" height="200"></canvas>
             </div>
-            <div>
-                <h4 class="text-lg font-semibold">Kelembapan Udara</h4>
-                <p class="text-xl font-bold">l</p>
+
+            <!-- Recent Alerts -->
+            <div class="p-6 bg-white shadow-sm rounded-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-semibold">Recent Alerts</h2>
+                    <button class="text-sm text-primary-600 hover:text-primary-800">View All</button>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <div class="p-2 mt-1 text-yellow-600 bg-yellow-100 rounded-lg">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">High temperature detected</p>
+                            <p class="text-sm text-gray-500">Bedroom sensor reached 28°C at 10:30 AM</p>
+                            <p class="mt-1 text-xs text-gray-400">2 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="p-2 mt-1 text-red-600 bg-red-100 rounded-lg">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Device offline</p>
+                            <p class="text-sm text-gray-500">Backyard camera lost connection</p>
+                            <p class="mt-1 text-xs text-gray-400">5 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="p-2 mt-1 text-blue-600 bg-blue-100 rounded-lg">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Maintenance reminder</p>
+                            <p class="text-sm text-gray-500">Air filter needs replacement</p>
+                            <p class="mt-1 text-xs text-gray-400">Yesterday</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <!-- Line Chart -->
-        <div class="p-4 bg-white rounded-lg shadow">
-            <canvas id="lineChart"></canvas>
-        </div>
-
-        <!-- Bar Chart -->
-        <div class="p-4 bg-white rounded-lg shadow">
-            <canvas id="barChart" width="400" height="200"></canvas>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    </div>
+    </main>
 </div>
-</div>
+
 @endsection
