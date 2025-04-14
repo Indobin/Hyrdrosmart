@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('monitoring_datas', function (Blueprint $table) {
             $table->id();
             $table->double('suhu_box');
-            $table->double('ph_tanah');
             $table->double('kelembapan_tanah');
             $table->double('kelembapan_udara');
             $table->dateTime('tanggal_monitoring');

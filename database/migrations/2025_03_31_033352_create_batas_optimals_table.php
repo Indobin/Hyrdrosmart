@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->double('suhu_min');
             $table->double('suhu_max');
-            $table->double('ph_min');
-            $table->double('ph_max');
             $table->double('kelembapan_t_min');
             $table->double('kelembapan_t_max');
             $table->double('kelembapan_u_min');
