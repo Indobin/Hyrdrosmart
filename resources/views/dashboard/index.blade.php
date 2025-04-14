@@ -1,32 +1,20 @@
 @extends('layouts.app')
 @section('title', 'Beranda')
+@section('header', 'Monitoring')
 @section('content')
 
  <!-- Main Content -->
- <div class="flex flex-col flex-1 overflow-hidden">
-    <!-- Top Navigation -->
-    <header class="z-10 bg-white shadow-sm">
-        <div class="flex items-center justify-between p-4">
-            <div class="flex items-center space-x-4">
-                <button id="sidebarToggle" class="block md:hidden">
-                    <i class="text-gray-600 fas fa-bars"></i>
-                </button>
-                <h1 class="text-xl font-semibold text-gray-800">IoT Monitoring</h1>
-            </div>
-        </div>
-    </header>
-
     <!-- Main Content Area -->
-    <main class="flex-1 p-4 overflow-y-auto bg-gray-50">
-        <!-- Stats Cards -->
+
+        {{-- <!-- Stats Cards -->
         <div class="grid grid-cols-1 gap-4 mb-6 md:grid-cols-2 lg:grid-cols-4">
             <div class="p-6 transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-gray-500">Temperature</p>
+                        <p class="text-gray-500">Suhu Udara</p>
                         <h3 class="text-2xl font-bold">24.5°C</h3>
                         <p class="flex items-center text-sm text-green-500">
-                            <i class="mr-1 fas fa-arrow-up"></i> 2.3% from yesterday
+                            <i class="mr-1 fas fa-arrow-up"></i> 2.3% dari kemarin
                         </p>
                     </div>
                     <div class="p-3 rounded-lg bg-primary-100 text-primary-600">
@@ -37,10 +25,10 @@
             <div class="p-6 transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-gray-500">Humidity</p>
+                        <p class="text-gray-500">Kelembapan Udara</p>
                         <h3 class="text-2xl font-bold">65%</h3>
                         <p class="flex items-center text-sm text-red-500">
-                            <i class="mr-1 fas fa-arrow-down"></i> 1.8% from yesterday
+                            <i class="mr-1 fas fa-arrow-down"></i> 1.8%  dari kemarin
                         </p>
                     </div>
                     <div class="p-3 text-blue-600 bg-blue-100 rounded-lg">
@@ -51,10 +39,10 @@
             <div class="p-6 transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-gray-500">Energy Usage</p>
-                        <h3 class="text-2xl font-bold">1.2 kW</h3>
+                        <p class="text-gray-500">Kelembapan Tanah</p>
+                        <h3 class="text-2xl font-bold">45%</h3>
                         <p class="flex items-center text-sm text-green-500">
-                            <i class="mr-1 fas fa-arrow-down"></i> 15% savings
+                            <i class="mr-1 fas fa-arrow-down"></i> 15% dari kemarin
                         </p>
                     </div>
                     <div class="p-3 text-yellow-600 bg-yellow-100 rounded-lg">
@@ -65,20 +53,20 @@
             <div class="p-6 transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-gray-500">Air Quality</p>
-                        <h3 class="text-2xl font-bold">Good</h3>
+                        <p class="text-gray-500">Status Hujan</p>
+                        <h3 class="text-2xl font-bold">Tidak Hujan</h3>
                         <p class="flex items-center text-sm text-green-500">
-                            <i class="mr-1 fas fa-check-circle"></i> Optimal
+                            <i class="mr-1 fas fa-cloud"></i> Cerah sebagian
                         </p>
                     </div>
-                    <div class="p-3 text-green-600 bg-green-100 rounded-lg">
-                        <i class="text-xl fas fa-wind"></i>
+                    <div class="p-3 text-indigo-600 bg-indigo-100 rounded-lg">
+                        <i class="text-xl fas fa-cloud-sun"></i>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        <!-- Charts Row -->
+        {{-- <!-- Charts Row -->
         <div class="grid grid-cols-1 gap-6 mb-6 lg:grid-cols-3">
             <!-- Temperature Chart -->
             <div class="col-span-2 p-6 bg-white shadow-sm rounded-xl">
@@ -173,7 +161,7 @@
                     </div>
                 </div>
                 <div class="mt-4 text-center">
-                    <p class="text-sm text-gray-500">Optimal range: 40% - 60%</p>
+                    <p class="text-sm text-gray-500">Optimal % - 60%</p>
                 </div>
             </div>
 
@@ -222,8 +210,91 @@
                     </div>
                 </div>
             </div>
+        </div> --}}
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 gap-4 mb-6">
+            <h1 class="text-2xl font-semibold">Selamat Datang, {{$user->username}}</h1>
+
+            <!-- Suhu Udara -->
+            <div class="p-6 transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
+                <div class="flex items-center justify-between h-full">
+                    <div>
+                        <p class="text-gray-500">Suhu Udara</p>
+                        <h3 class="text-2xl font-bold">24.5°C</h3>
+                        <p class="flex items-center text-sm text-green-500">
+                            <i class="mr-1 fas fa-arrow-up"></i> 2.3% dari kemarin
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="p-3 rounded-lg bg-primary-100 text-primary-600">
+                            <i class="text-2xl fas fa-thermometer-half"></i>
+                        </div>
+                        <span class="text-xs mt-1 text-green-600">Optimal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kelembapan Udara -->
+            <div class="p-6  transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
+                <div class="flex items-center justify-between h-full">
+                    <div>
+                        <p class="text-gray-500">Kelembapan Udara</p>
+                        <h3 class="text-2xl font-bold">65%</h3>
+                        <p class="flex items-center text-sm text-red-500">
+                            <i class="mr-1 fas fa-arrow-down"></i> 1.8% dari kemarin
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="p-3 text-blue-600 bg-blue-100 rounded-lg">
+                            <i class="text-2xl fas fa-tint"></i>
+                        </div>
+                        {{-- <span class="text-xs mt-1 text-green-600">Optimal</span> --}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kelembapan Tanah -->
+            <div class="p-6  transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
+                <div class="flex items-center justify-between h-full">
+                    <div>
+                        <p class="text-gray-500">Kelembapan Tanah</p>
+                        <h3 class="text-2xl font-bold">45%</h3>
+                        <p class="flex items-center text-sm text-green-500">
+                            <i class="mr-1 fas fa-arrow-down"></i> 15% dari kemarin
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center h-full space-y-2">
+                        <div class="p-3 text-yellow-600 bg-yellow-100 rounded-lg">
+                            <i class="text-2xl fas fa-bolt"></i>
+                        </div>
+                        <span class="text-xs mt-1 text-green-600">Optimal</span>
+                        {{-- <span class="text-xs text-red-600">Peringatan</span> --}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Hujan -->
+            <div class="p-6  transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
+                <div class="flex items-center justify-between h-full">
+                    <div>
+                        <p class="text-gray-500">Status Hujan</p>
+                        <h3 class="text-2xl font-bold">Tidak Hujan</h3>
+                        <p class="flex items-center text-sm text-green-500">
+                            <i class="mr-1 fas fa-cloud"></i> Cerah sebagian
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="p-3 text-indigo-600 bg-indigo-100 rounded-lg">
+                            <i class="text-2xl fas fa-cloud-sun"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </main>
-</div>
+
+
 
 @endsection

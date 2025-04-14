@@ -13,13 +13,13 @@
 <body class="bg-gray-100">
     <div class="flex h-screen bg-gray-100">
         @include('layouts.sidebar')
-        {{-- <div class="flex flex-col flex-1">
-    @include('layouts.header')
-    <main class="flex-1 p-6 overflow-y-auto "> --}}
+    <div class="flex flex-col flex-1 overflow-hidden">
+        @include('layouts.header')
+        <main class="flex-1 p-4 overflow-y-auto bg-gray-50">
         @yield('content')
-    </main>
-    {{-- @include('layouts.footer') --}}
+        </main>
         </div>
+    </div>
 </div>
 </body>
 </html>

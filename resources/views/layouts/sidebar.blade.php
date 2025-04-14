@@ -18,34 +18,26 @@
                     Monitoring
                 </x-nav-link>
 
-                <x-nav-link href="{{ route('optimalisasi') }}" icon="fas fa-water" :active="request()->is('optimalisasi')">
+                <x-nav-link href="{{ route('penyiraman') }}" icon="fas fa-water" :active="request()->is('penyiraman')">
                     Penyiraman
                 </x-nav-link>
 
                 <x-nav-link href="{{ route('optimalisasi') }}" icon="fas fa-cogs" :active="request()->is('optimalisasi')">
                     Optimalisasi
                 </x-nav-link>
-
                 <x-nav-link href="{{ route('optimalisasi') }}" icon="fas fa-history" :active="request()->is('optimalisasi')">
                     Riwayat Monitoring
                 </x-nav-link>
+                <x-nav-link href="{{ route('logout') }}" icon="fas fa-right-from-bracket" :active="request()->is('logout')">
+                    Logout
+                </x-nav-link>
+
 
             </ul>
         </div>
-        <div class="mb-8">
-            <h3 class="mb-4 text-xs font-semibold uppercase text-primary-300">Manajemen</h3>
-            <ul class="space-y-2">
-                <x-nav-link href="route('optimalisasi')" icon="fas fa-user-cog" :active="request()->is('optimalisasi')">
-                    Profil
-                </x-nav-link>
-                <x-nav-link href="route('optimalisasi')" icon="fas fa-exclamation-triangle" :active="request()->is('optimalisasi')">
-                    Peringatan
-                </x-nav-link>
 
-            </ul>
-        </div>
         <div class="p-4 rounded-lg bg-primary-700">
-            <div class="mb-2 text-sm">System Status</div>
+            <div class="mb-2 text-sm">Status Sistem</div>
             <div class="flex items-center justify-between">
                 <div class="text-xs text-primary-200">All systems operational</div>
                 <div class="w-3 h-3 bg-green-400 rounded-full"></div>

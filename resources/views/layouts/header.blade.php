@@ -1,37 +1,15 @@
-<header class="flex fixed flex-wrap items-center justify-between  bg-white px-4 py-4 shadow w-full">
-    <button class="lg:hidden  text-gray-600 hover:text-gray-900 focus:outline-none" id="sidebar-toggle">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
-        </svg>
-    </button>
-    <h2 class="text-lg font-semibold md:text-xl flex-1 text-center lg:text-left lg:flex-none">@yield('title')</h2>
+<header class="z-10 bg-white shadow-sm">
+    <div class="flex items-center justify-between p-4">
+        <div class="flex items-center space-x-4">
+            <button id="sidebarToggle" class="block md:hidden">
+                <i class="text-gray-600 fas fa-bars"></i>
+            </button>
+            <h1 class="text-xl font-semibold text-gray-800">@yield('header')</h1>
+            {{-- <i class="text-gray-500 fas fa-clock"></i>
+            <span id="time" class="text-sm font-medium">Loading...</span> --}}
+        </div>
+        <div class="flex items-center space-x-2 text-gray-800">
+            <span id="date" class="text-sm font-medium">Loading...</span>
+        </div>
+    </div>
 </header>
-<script>
-    const sidebar = document.getElementById('sidebar');
-    const sidebarToggle = document.getElementById('sidebar-toggle');
-
-    function toggleSidebar() {
-        if (sidebar.classList.contains('-translate-x-full')) {
-            sidebar.classList.remove('-translate-x-full');
-            sidebarToggle.classList.add('hidden');
-        } else {
-            sidebar.classList.add('-translate-x-full');
-            sidebarToggle.classList.remove('hidden');
-        }
-    }
-
-    sidebarToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleSidebar();
-    });
-
-    document.addEventListener('click', (e) => {
-        const clickedInsideSidebar = sidebar.contains(e.target);
-        const clickedToggleButton = sidebarToggle.contains(e.target);
-
-        if (!clickedInsideSidebar && !clickedToggleButton && !sidebar.classList.contains('-translate-x-full')) {
-            sidebar.classList.add('-translate-x-full');
-            sidebarToggle.classList.remove('hidden');
-        }
-    });
-  </script>
