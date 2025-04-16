@@ -25,7 +25,7 @@
                 <x-nav-link href="{{ route('optimalisasi') }}" icon="fas fa-cogs" :active="request()->is('optimalisasi')">
                     Optimalisasi
                 </x-nav-link>
-                <x-nav-link href="{{ route('optimalisasi') }}" icon="fas fa-history" :active="request()->is('optimalisasi')">
+                <x-nav-link href="{{ route('riwayat_monitoring') }}" icon="fas fa-history" :active="request()->is('riwayat-monitoring')">
                     Riwayat Monitoring
                 </x-nav-link>
                 <x-nav-link href="{{ route('logout') }}" icon="fas fa-right-from-bracket" :active="request()->is('logout')">

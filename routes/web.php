@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RiwayatMController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
@@ -9,6 +10,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('optimalisasi', [OptimalalisasiController::class, 'index'])->name('optimalisasi');
     Route::get('penyiraman', [PenyiramanController::class, 'index'])->name('penyiraman');
+    Route::get('riwayat-monitoring', [RiwayatMController::class, 'index'])->name('riwayat_monitoring');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
 
