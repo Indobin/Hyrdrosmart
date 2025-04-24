@@ -15,7 +15,7 @@
             <h3 class="mb-4 text-xs font-semibold uppercase text-primary-300">Beranda</h3>
             <ul class="space-y-2">
                 <x-nav-link href="{{ route('dashboard') }}" icon="fas fa-chart-line" :active="request()->is('dashboard')">
-                    Monitoring
+                    Beranda
                 </x-nav-link>
 
                 <x-nav-link href="{{ route('penyiraman') }}" icon="fas fa-water" :active="request()->is('penyiraman')">
@@ -28,9 +28,18 @@
                 <x-nav-link href="{{ route('riwayat_monitoring') }}" icon="fas fa-history" :active="request()->is('riwayat-monitoring')">
                     Riwayat Monitoring
                 </x-nav-link>
-                <x-nav-link href="{{ route('logout') }}" icon="fas fa-right-from-bracket" :active="request()->is('logout')">
-                    Logout
-                </x-nav-link>
+                <x-nav-link
+                href="{{ route('logout') }}"
+                icon="fas fa-right-from-bracket"
+                :active="request()->is('logout')"
+                onclick="event.preventDefault(); if(confirm('Yakin ingin logout?')) { document.getElementById('logout-form').submit(); }"
+            >
+                Logout
+            </x-nav-link>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
 
 
             </ul>
