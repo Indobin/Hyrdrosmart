@@ -1,14 +1,10 @@
 <?php
-
 namespace App\Services;
-
 use PhpMqtt\Client\MqttClient;
 use PhpMqtt\Client\ConnectionSettings;
-
 class MqttService
 {
     protected $mqtt;
-
     public function __construct()
     {
         $server   = env('MQTT_HOST', 'broker.emqx.io');

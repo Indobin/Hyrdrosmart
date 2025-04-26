@@ -11,8 +11,10 @@ class DashboardController extends Controller
 {
     public function index(CuacaService $cuacaService) {
         $user = Auth::user();
-        $cuaca = $cuacaService->getJemberWeather();
-        return view('dashboard.index', compact('user', 'cuaca'));
+        $lat = -8.1625;
+        $lon = 113.7101;
+        $weather = $cuacaService->getWeather($lat, $lon);
+        return view('dashboard.index', compact('user'))->with($weather);
     }
     public function monitoring()
     {

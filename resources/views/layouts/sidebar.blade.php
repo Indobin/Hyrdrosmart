@@ -31,13 +31,11 @@
                 <x-nav-link
                 href="{{ route('logout') }}"
                 icon="fas fa-right-from-bracket"
-                :active="request()->is('logout')"
-                onclick="event.preventDefault(); if(confirm('Yakin ingin logout?')) { document.getElementById('logout-form').submit(); }"
-            >
+                id="logoutButton" >
                 Logout
             </x-nav-link>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <form id="logout-Form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
 
@@ -55,3 +53,24 @@
     </div>
 </div>
 
+<script>
+    document.getElementById('logoutButton').addEventListener('click', function (e) {
+        e.preventDefault();
+    
+        Swal.fire({
+            title: 'Apakah Anda yakin ingin logout?',
+            text: "Anda akan keluar dari aplikasi.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#e3342f',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: 'Ya, logout!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('logout-Form').submit();
+            }
+        });
+    });
+    </script>
+    
