@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Console\Commands;
-
 use Illuminate\Console\Command;
 use PhpMqtt\Client\MqttClient;
 use PhpMqtt\Client\ConnectionSettings;
-
 class MqttDummyPublisher extends Command
 {
     protected $signature = 'mqtt:publish-dummy';

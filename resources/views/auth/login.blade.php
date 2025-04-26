@@ -19,26 +19,27 @@
         @endif
         <form action="{{ route('login.post') }}" method="POST" class="space-y-4">
             @csrf
-
+            <div>
                 <label class="block mb-1 text-gray-600" for="username">Username</label>
                 <input type="name" id="username" name="username" value="{{ old('username') }}"
                     class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-primary-300 focus:outline-none">
-                    @error('username')
+                    {{-- @error('username')
                     <span class="text-xs text-red-600">
                         <strong>{{ $message }}</strong>
                     </span>
-                @enderror
+                @enderror --}}
                 <x-input-error :messages="$errors->get('username')" />
-                    <div>
+                    
             </div>
 
             <div>
                 <label class="block mb-1 text-gray-600" for="password">Password</label>
                 <input type="password" id="password" name="password"
                     class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-primary-300 focus:outline-none">
+                    <x-input-error :messages="$errors->get('password')" />
             </div>
             <button type="submit" id="loginButton"
-            class="w-full py-2 text-white rounded-lg cursor-not-allowed bg-primary-300"
+            class="w-full py-2 text-white rounded-lg  bg-primary-600"
             >
             Masuk
         </button>
@@ -47,26 +48,5 @@
     </div>
 </body>
 </html>
-    {{-- <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const usernameInput = document.getElementById("username");
-            const passwordInput = document.getElementById("password");
-            const loginButton = document.getElementById("loginButton");
-
-            function toggleButtonState() {
-                if (usernameInput.value.trim() !== "" && passwordInput.value.trim() !== "") {
-                    loginButton.removeAttribute("disabled");
-                    loginButton.classList.remove("bg-primary-400", "cursor-not-allowed");
-                    loginButton.classList.add("bg-primary-600", "hover:bg-primary-700");
-                } else {
-                    loginButton.setAttribute("disabled", "true");
-                    loginButton.classList.add("bg-primary-400", "cursor-not-allowed");
-                    loginButton.classList.remove("bg-primary-600", "hover:bg-primary-700");
-                }
-            }
-
-            usernameInput.addEventListener("input", toggleButtonState);
-            passwordInput.addEventListener("input", toggleButtonState);
-        });
-    </script> --}}
+  
 
