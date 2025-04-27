@@ -15,18 +15,16 @@
             <h3 class="mb-4 text-xs font-semibold uppercase text-primary-300">Beranda</h3>
             <ul class="space-y-2">
                 <x-nav-link href="{{ route('dashboard') }}" icon="fas fa-chart-line" :active="request()->is('dashboard')">
-                    Beranda
+                    Monitoring
                 </x-nav-link>
-
                 <x-nav-link href="{{ route('penyiraman') }}" icon="fas fa-water" :active="request()->is('penyiraman')">
                     Penyiraman
                 </x-nav-link>
-
-                <x-nav-link href="{{ route('optimalisasi') }}" icon="fas fa-cogs" :active="request()->is('optimalisasi')">
-                    Optimalisasi
-                </x-nav-link>
                 <x-nav-link href="{{ route('riwayat_monitoring') }}" icon="fas fa-history" :active="request()->is('riwayat-monitoring')">
                     Riwayat Monitoring
+                </x-nav-link>
+                <x-nav-link href="{{ route('panduan') }}" icon="fas fa-cogs" :active="request()->is('panduan')">
+                    Panduan Website
                 </x-nav-link>
                 <x-nav-link
                 href="{{ route('logout') }}"

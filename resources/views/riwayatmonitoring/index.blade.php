@@ -9,21 +9,20 @@
          <tr class="bg-gray-150">
              <x-table.th>No</x-table.th>
              <x-table.th>Tanggal Monitoring</x-table.th>
-             <x-table.th>Suhu Box</x-table.th>
+             <x-table.th>Suhu</x-table.th>
              <x-table.th>Kelembapan Tanah</x-table.th>
-             <x-table.th>Kelembapan Udara</x-table.th>
-             <x-table.th>Status</x-table.th>
+             <x-table.th>Mode Penyiraman</x-table.th>
          </tr>
      </thead>
      <x-table.tbody>
          @foreach ($riwayat as $data)
          <x-table.tr>
              <x-table.td>{{ $loop->iteration }}</x-table.td>
-             <x-table.td class="hidden sm:table-cell">{{ $data->tanggal_monitoring->format('d M Y')}}</x-table.td>
-             <x-table.td>{{ $data->suhu_box }}</x-table.td>
+             <x-table.td>{{ $data->tanggal_monitoring->format('d M Y')}}</x-table.td>
+             <x-table.td>{{ $data->suhu }}</x-table.td>
              <x-table.td>{{ $data->kelembapan_tanah }}</x-table.td>
-             <x-table.td>{{ $data->kelembapan_udara }}</x-table.td>
-             <x-table.td>Kocak</x-table.td>
+             <x-table.td>{{ $data->penyiraman->mode }}</x-table.td>
+        
          </x-table.tr>
          @endforeach
      </x-table.tbody>

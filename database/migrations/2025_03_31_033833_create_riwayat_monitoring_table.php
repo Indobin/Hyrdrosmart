@@ -6,17 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public $timestamps = false;
+   
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('irgasis', function (Blueprint $table) {
+        Schema::create('riwayat_monitoring', function (Blueprint $table) {
             $table->id();
-            $table->boolean('status')->default(false);
-            $table->enum('mode', ['otomatis', 'manual']);
-            // $table->timestamps();
+            $table->double('suhu');
+            $table->double('kelembapan_tanah');
+            $table->foreignId('penyiraman_id')
+            ->constrained('penyiraman')
+            ->onDelete('cascade'); 
+            $table->dateTime('tanggal_monitoring');
         });
     }
 
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('irgasis');
+        Schema::dropIfExists('riwayat_monitoring');
     }
 };
