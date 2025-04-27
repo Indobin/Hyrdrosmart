@@ -6,19 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public $timestamps = false;
+    // public $timestamps = false;
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('monitoring_datas', function (Blueprint $table) {
+        Schema::create('penyiraman', function (Blueprint $table) {
             $table->id();
-            $table->double('suhu_box');
-            $table->double('kelembapan_tanah');
-            $table->double('kelembapan_udara');
-            $table->dateTime('tanggal_monitoring');
-            // $table->timestamps();
+            $table->enum('mode', ['otomatis', 'manual']);
+            $table->timestamps();
         });
     }
 
@@ -27,6 +24,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('monitoring_datas');
+        Schema::dropIfExists('penyiraman');
     }
+    
 };

@@ -9,7 +9,7 @@ class RiwayatMController extends Controller
 {
     public function index()
     {
-        $riwayat = RiwayatMonitoring::latest('tanggal_monitoring')->get();
+        $riwayat = RiwayatMonitoring::latest('tanggal_monitoring')->with('penyiraman')->get();
         return view('riwayatmonitoring.index', compact('riwayat'));
     }
 }

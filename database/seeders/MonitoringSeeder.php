@@ -15,48 +15,20 @@ class MonitoringSeeder extends Seeder
      */
     public function run(): void
     {
+        $penyiraman = DB::table('penyiraman')->first();
         $monitoring = [
             [
-                'suhu_box' => 28.5,
-                'kelembapan_tanah' => 45.2,
-                'kelembapan_udara' => 60.1,
-                'tanggal_monitoring' => Carbon::parse('2025-04-01 08:00:00'),
+                'suhu' => 30.5,
+                'kelembapan_tanah' => 60.2,
+                'penyiraman_id' => $penyiraman->id,
+                'tanggal_monitoring' => Carbon::now(),
             ],
             [
-                'suhu_box' => 29.1,
-                'kelembapan_tanah' => 43.8,
-                'kelembapan_udara' => 61.5,
-                'tanggal_monitoring' => Carbon::parse('2025-04-02 08:00:00'),
-            ],
-            [
-                'suhu_box' => 30.0,
-                'kelembapan_tanah' => 42.0,
-                'kelembapan_udara' => 63.2,
-                'tanggal_monitoring' => Carbon::parse('2025-04-03 08:00:00'),
-            ],
-            [
-                'suhu_box' => 28.7,
-                'kelembapan_tanah' => 44.0,
-                'kelembapan_udara' => 59.9,
-                'tanggal_monitoring' => Carbon::parse('2025-04-04 08:00:00'),
-            ],
-            [
-                'suhu_box' => 27.9,
-                'kelembapan_tanah' => 46.5,
-                'kelembapan_udara' => 58.7,
-                'tanggal_monitoring' => Carbon::parse('2025-04-05 08:00:00'),
-            ],
-            [
-                'suhu_box' => 29.3,
-                'kelembapan_tanah' => 41.8,
-                'kelembapan_udara' => 60.4,
-                'tanggal_monitoring' => Carbon::parse('2025-04-06 08:00:00'),
-            ],
-            [
-                'suhu_box' => 30.2,
-                'kelembapan_tanah' => 40.0,
-                'kelembapan_udara' => 62.1,
-                'tanggal_monitoring' => Carbon::parse('2025-04-07 08:00:00'),
+                'suhu' => 28.7,
+                'kelembapan_tanah' => 55.5,
+                'penyiraman_id' => $penyiraman->id,
+                'tanggal_monitoring' => Carbon::now()->addDay(1),
+
             ],
         ];
         foreach ($monitoring as $data ) {

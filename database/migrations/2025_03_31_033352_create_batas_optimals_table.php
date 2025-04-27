@@ -16,10 +16,10 @@ return new class extends Migration
             $table->id();
             $table->double('suhu_min');
             $table->double('suhu_max');
-            $table->double('kelembapan_t_min');
-            $table->double('kelembapan_t_max');
-            $table->double('kelembapan_u_min');
-            $table->double('kelembapan_u_max');
+            $table->double('kelembaban_t_min');
+            $table->double('kelembaban_t_max');
+            // $table->double('kelembapan_u_min');
+            // $table->double('kelembapan_u_max');
             // $table->unsignedInteger('created_at');
         });
     }
