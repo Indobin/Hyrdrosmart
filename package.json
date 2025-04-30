@@ -1,22 +1,36 @@
 {
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "build": "vite build",
-        "dev": "vite"
-    },
-    "devDependencies": {
-        "@tailwindcss/postcss": "^4.1.3",
-        "@tailwindcss/vite": "^4.0.17",
-        "autoprefixer": "^10.4.21",
-        "axios": "^1.8.2",
-        "concurrently": "^9.0.1",
-        "laravel-vite-plugin": "^1.2.0",
-        "tailwindcss": "^4.0.17",
-        "vite": "^6.0.11"
-    },
-    "dependencies": {
-        "-": "^0.0.1",
-        "npm": "^11.3.0"
-    }
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.3",
+    "@tailwindcss/vite": "^4.0.17",
+    "autoprefixer": "^10.4.21",
+    "axios": "^1.9.0",
+    "concurrently": "^9.0.1",
+    "laravel-vite-plugin": "^1.2.0",
+    "tailwindcss": "^4.0.17",
+    "vite": "^6.0.11"
+  },
+  "dependencies": {
+    "-": "^0.0.1",
+    "laravel-echo": "^2.0.2",
+    "mqtt": "^5.12.0",
+    "npm": "^11.3.0",
+    "pusher-js": "^8.4.0",
+    "redis": "^4.7.0"
+  },
+  "name": "hyrdrosmart",
+  "description": "Sistem ini adalah aplikasi berbasis web untuk memonitor data dari perangkat IoT secara real-time. Aplikasi ini dibangun menggunakan **Laravel 11** dan **Tailwind CSS**, serta memiliki fitur autentikasi pengguna. [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
