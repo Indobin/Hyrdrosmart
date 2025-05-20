@@ -37,7 +37,7 @@
                     <div>
                         <p class="text-gray-500">Kelembapan Tanah</p>
                         <div class="flex items-center">
-                            <h3 id="kelembaban" class="text-2xl font-bold">{{ $kelembaban ?? '-' }}</h3>
+                            <h3 id="kelembaban_tanah" class="text-2xl font-bold">{{ $kelembaban_tanah ?? '-' }}</h3>
                             <span class="ml-1 text-2xl font-bold">%</span>
                         </div>
 
@@ -76,12 +76,11 @@
         </div>
 
         <script>
-            // Ambil data baru tiap 5 detik
             setInterval(async () => {
               try {
                 const res = await axios.get('/sensor-latest');
                 document.getElementById('suhu').innerText = res.data.suhu;
-                document.getElementById('kelembaban').innerText = res.data.kelembaban;
+                document.getElementById('kelembaban_tanah').innerText = res.data.kelembaban_tanah;
               } catch (err) {
                 console.error('Gagal update:', err);
               }

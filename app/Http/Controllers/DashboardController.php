@@ -13,22 +13,22 @@ class DashboardController extends Controller
 {
     public function index(CuacaService $cuacaService) {
         $suhu = Cache::get('suhu');
-        $kelembaban = Cache::get('kelembaban');
+        $kelembaban_tanah = Cache::get('kelembaban_tanah');
  
        $user = Auth::user();
         $lat = -8.1625;
         $lon = 113.7101;
         $weather = $cuacaService->getWeather($lat, $lon);
-        return view('dashboard.index', compact('user','suhu', 'kelembaban'))->with($weather);
+        return view('dashboard.index', compact('user','suhu', 'kelembaban_tanah'))->with($weather);
     }
     public function getSensorData(Request $request)
     {
         $validasi = $request->validate([
             'suhu' => 'required|numeric',
-            'kelembaban' => 'required|numeric'
+            'kelembaban_tanah' => 'required|numeric'
         ]);
         Cache::put('suhu', $validasi['suhu'], now()->addMinutes(10));
-        Cache::put('kelembaban', $validasi['kelembaban'], now()->addMinutes(10));
+        Cache::put('kelembaban_tanah', $validasi['kelembaban_tanah'], now()->addMinutes(10));
 
         return response()->json(['status' => 'success']);
        

@@ -40,11 +40,11 @@ client.on('message', async function (topic, message) {
 
   try {
     const data = JSON.parse(payload);
-    console.log(`Suhu: ${data.suhu}°C, Kelembaban: ${data.kelembaban}%`);
+    console.log(`Suhu: ${data.suhu}°C, Kelembaban Tanah: ${data.kelembaban_tanah}%`);
 
     const response = await axios.post('http://127.0.0.1:8000/api/sensor', {
       suhu: data.suhu,
-      kelembaban: data.kelembaban
+      kelembaban_tanah: data.kelembaban_tanah
     });
 
     console.log('Laravel response:', response.data);
