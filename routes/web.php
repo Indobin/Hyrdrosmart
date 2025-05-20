@@ -13,7 +13,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/sensor-latest', function () {
         return response()->json([
             'suhu' => Cache::get('suhu'),
-            'kelembaban' => Cache::get('kelembaban'),
+            'kelembaban_tanah' => Cache::get('kelembaban_tanah'),
         ]);
     });
     Route::get('/cache-check', function () {
@@ -22,11 +22,8 @@ Route::middleware(['auth'])->group(function () {
             'kelembaban' => Cache::get('kelembaban')
         ];
     });
-    
-    
-    
-
     Route::get('penyiraman', [PenyiramanController::class, 'index'])->name('penyiraman');
+    Route::post('penyiraman-manual',[PenyiramanController::class, 'penyiramanManual'])->name('penyiraman_manual');
     Route::get('panduan', [PanduanWebsiteController::class, 'index'])->name('panduan');
     Route::get('riwayat-monitoring', [RiwayatMController::class, 'index'])->name('riwayat_monitoring');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
