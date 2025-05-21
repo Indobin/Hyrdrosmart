@@ -6,6 +6,7 @@ use App\Http\Controllers\RiwayatMController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PenyiramanController;
 use App\Http\Controllers\PanduanWebsiteController;
+use PhpMqtt\Client\Facades\MQTT;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -16,6 +17,7 @@ Route::middleware(['auth'])->group(function () {
             'kelembaban_tanah' => Cache::get('kelembaban_tanah'),
         ]);
     });
+    
     Route::get('/cache-check', function () {
         return [
             'suhu' => Cache::get('suhu'),
