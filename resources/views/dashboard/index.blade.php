@@ -17,15 +17,11 @@
                             <h3 class="text-2xl font-bold" id="suhu">{{ $suhu ?? '-' }}</h3>
                             <span class="ml-1 text-2xl font-bold">°C</span>
                           </div>
-                        <p class="flex items-center text-sm text-green-500">
-                          <i class="mr-1 fas fa-arrow-up"></i> 2.3% dari kemarin
-                        </p>
                       </div>
                     <div class="flex flex-col items-center">
                         <div class="p-3 rounded-lg bg-primary-100 text-primary-600">
                             <i class="text-2xl fas fa-thermometer-half"></i>
                         </div>
-                        <span class="mt-1 text-xs text-green-600">Optimal</span>
                     </div>
                 </div>
             </div>
@@ -41,16 +37,11 @@
                             <span class="ml-1 text-2xl font-bold">%</span>
                         </div>
 
-                        <p class="flex items-center text-sm text-green-500">
-                            <i class="mr-1 fas fa-arrow-down"></i> 15% dari kemarin
-                        </p>
                     </div>
                     <div class="flex flex-col items-center justify-center h-full space-y-2">
                         <div class="p-3 text-yellow-600 bg-yellow-100 rounded-lg">
                             <i class="text-2xl fas fa-bolt"></i>
                         </div>
-                        <span class="mt-1 text-xs text-green-600">Optimal</span>
-                        {{-- <span class="text-xs text-red-600">Peringatan</span> --}}
                     </div>
                 </div>
             </div>

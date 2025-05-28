@@ -5,7 +5,7 @@
 
 <div class="min-h-screen flex items-center justify-center bg-gray-100 px-4 relative">
     
-    <div id="overlay-loading" class="fixed inset-0 bg-white bg-opacity-80 z-50 hidden flex flex-col items-center justify-center">
+    <div id="overlay-loading" class="fixed inset-0 bg-white bg-opacity-80 z-50 hidden flex-col items-center justify-center">
         <svg class="animate-spin h-12 w-12 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
             <path class="opacity-75" fill="currentColor"
