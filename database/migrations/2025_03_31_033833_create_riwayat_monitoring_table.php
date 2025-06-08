@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-   
+
     /**
      * Run the migrations.
      */
@@ -16,9 +16,10 @@ return new class extends Migration
             $table->id();
             $table->double('suhu');
             $table->double('kelembapan_tanah');
+            $table->double('cuaca');
             $table->foreignId('penyiraman_id')
             ->constrained('penyiraman')
-            ->onDelete('cascade'); 
+            ->onDelete('cascade');
             $table->dateTime('tanggal_monitoring');
         });
     }

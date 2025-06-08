@@ -17,7 +17,7 @@ Route::middleware(['auth'])->group(function () {
             'kelembaban_tanah' => Cache::get('kelembaban_tanah'),
         ]);
     });
-    
+
     Route::get('/cache-check', function () {
         return [
             'suhu' => Cache::get('suhu'),
@@ -30,7 +30,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('riwayat-monitoring', [RiwayatMController::class, 'index'])->name('riwayat_monitoring');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
-// Route::post('api/mqtt-data', [MqttController::class, 'index']);
 Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
-// Route::get('/monitoring/data', [MonitoringController::class, 'getDummyData']);
+

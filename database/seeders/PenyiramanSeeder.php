@@ -18,12 +18,17 @@ class PenyiramanSeeder extends Seeder
             [
                 'mode' => 'otomatis',
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
+
+            ],
+            [
+                'mode' => 'jadwal',
+                'created_at' => Carbon::now(),
+
             ],
             [
                 'mode' => 'manual',
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
+
             ],
         ];
         foreach ($penyiraman as $data) {

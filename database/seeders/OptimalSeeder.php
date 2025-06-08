@@ -14,10 +14,10 @@ class OptimalSeeder extends Seeder
     public function run(): void
     {
         $optimal = [
-            'suhu_min' => 20,
-            'suhu_max' => 40,
-            'kelembaban_t_min' => 60,
-            'kelembaban_t_max' =>90
+            'suhu_min' => 25,
+            'suhu_max' => 35,
+            'kelembaban_t_min' => 40,
+            'kelembaban_t_max' =>75
         ];
         Optimal::create($optimal);
     }

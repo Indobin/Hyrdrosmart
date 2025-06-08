@@ -14,7 +14,7 @@ class DashboardController extends Controller
     public function index(CuacaService $cuacaService) {
         $suhu = Cache::get('suhu');
         $kelembaban_tanah = Cache::get('kelembaban_tanah');
- 
+
        $user = Auth::user();
         $lat = -8.1625;
         $lon = 113.7101;
@@ -31,10 +31,10 @@ class DashboardController extends Controller
         Cache::put('kelembaban_tanah', $validasi['kelembaban_tanah'], now()->addMinutes(10));
 
         return response()->json(['status' => 'success']);
-       
-    }
-  
 
-        
-    
+    }
+
+
+
+
 }

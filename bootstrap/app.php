@@ -25,9 +25,9 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withSchedule(function(Schedule $schedule){
-        $schedule->command('penyiraman:jadwal')->everyTwentySeconds();
-        // $schedule->command('penyiraman:jadwal')->cron('30 06 * * *');
-        // $schedule->command('penyiraman:jadwal')->cron('30 16 * * *');
+        // $schedule->command('penyiraman:jadwal')->everyTwentySeconds();
+        $schedule->command('penyiraman:jadwal')->cron('30 06 * * *');
+        $schedule->command('penyiraman:jadwal')->cron('30 16 * * *');
     })
     ->create();
-    
+

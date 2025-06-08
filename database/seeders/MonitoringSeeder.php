@@ -19,12 +19,14 @@ class MonitoringSeeder extends Seeder
         $monitoring = [
             [
                 'suhu' => 30.5,
+                'cuaca' => 28.7,
                 'kelembapan_tanah' => 60.2,
                 'penyiraman_id' => $penyiraman->id,
                 'tanggal_monitoring' => Carbon::now(),
             ],
             [
                 'suhu' => 28.7,
+                'cuaca' => 28.7,
                 'kelembapan_tanah' => 55.5,
                 'penyiraman_id' => $penyiraman->id,
                 'tanggal_monitoring' => Carbon::now()->addDay(1),

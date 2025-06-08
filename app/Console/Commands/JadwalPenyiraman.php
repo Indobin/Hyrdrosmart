@@ -9,7 +9,7 @@ use Illuminate\Console\Command;
 use App\Models\RiwayatMonitoring;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
-
+use App\Services\CuacaService;
 class JadwalPenyiraman extends Command
 {
     /**
@@ -29,26 +29,26 @@ class JadwalPenyiraman extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(CuacaService $cuacaService)
     {
+        $lat = -8.1625;
+        $lon = 113.7101;
+        $weather = $cuacaService->getWeather($lat, $lon);
+        $cucaca = $weather['temperature'];
         $suhu = Cache::get('suhu');
         $kelembaban_tanah = Cache::get('kelembaban_tanah');
-        $mode = 'jadwal';
         $tanggal = Carbon::now();
-        $penyiraman = Penyiraman::create([
-            'mode' => $mode,
-            'created_at' => $tanggal
-        ]);
-        $penyiraman->riwayatMonitorings()->create([
+        RiwayatMonitoring::create([
+            'cuaca' => $cucaca,
             'suhu' => $suhu,
             'kelembapan_tanah' => $kelembaban_tanah,
+            'penyiraman_id' => 2,
             'tanggal_monitoring' => $tanggal
         ]);
         $response = Http::post('http://localhost:5000/api/publish', [
             'topic' => 'perintah/siram',
             'payload' => json_encode(['command' => 'start'])
         ]);
-        
         if ($response->successful()) {
         return response()->json(['message' => 'Penyiraman jadwal di-trigger dan perintah terkirim'], 200);
         } else {

@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('penyiraman', function (Blueprint $table) {
             $table->id();
-            $table->enum('mode', ['otomatis', 'manual']);
-            $table->timestamps();
+            $table->string('mode');
+            $table->datetime('created_at');
         });
     }
 
@@ -26,5 +26,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('penyiraman');
     }
-    
+
 };

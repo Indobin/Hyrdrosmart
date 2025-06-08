@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'username' => 'Satya',
-            'email' => 'satyabr147@gmail.com',
+            'username' => 'Satya'
         ]);
         $this->call([
+            OptimalSeeder::class,
             PenyiramanSeeder::class,
             MonitoringSeeder::class
         ]);

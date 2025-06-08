@@ -4,7 +4,7 @@
     <div class="flex items-center justify-between p-4 border-b border-primary-700">
         <div class="flex items-center space-x-2">
             <i class="text-2xl fas fa-leaf text-primary-300"></i>
-            <span class="text-xl font-bold">Sengon Iot</span>
+            <span class="text-xl font-bold">Hydrosmart</span>
         </div>
         <button id="sidebarClose" class="block md:hidden">
             <i class="fas fa-times"></i>
@@ -54,7 +54,7 @@
 <script>
     document.getElementById('logoutButton').addEventListener('click', function (e) {
         e.preventDefault();
-    
+
         Swal.fire({
             title: 'Apakah Anda yakin ingin logout?',
             text: "Anda akan keluar dari aplikasi.",
@@ -71,4 +71,3 @@
         });
     });
     </script>
-    

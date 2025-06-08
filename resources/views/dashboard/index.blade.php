@@ -7,7 +7,7 @@
         <!-- Stats Cards -->
         <div class="grid grid-cols-1 gap-4 mb-6">
             <h1 class="text-2xl font-semibold">Selamat Datang, {{$user->username}}</h1>
-           
+
             <!-- Suhu Udara -->
             <div class="p-6 transition-all duration-300 bg-white shadow-sm rounded-xl card-hover">
                 <div class="flex items-center justify-between h-full">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
         </div>
 

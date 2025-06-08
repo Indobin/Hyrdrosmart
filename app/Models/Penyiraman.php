@@ -8,8 +8,9 @@ class Penyiraman extends Model
 {
     protected $table = 'penyiraman';
     protected $guarded = ['id'];
+    public $timestamps = false;
     public function riwayatMonitorings()
     {
-        return $this->hasOne(RiwayatMonitoring::class);
+        return $this->hasMany(RiwayatMonitoring::class);
     }
 }
