@@ -1,11 +1,15 @@
 #!/bin/bash
 
-# Jalankan migration dan scheduler
+# Clear dan cache ulang config (pakai .env dari Railway dashboard)
+php artisan config:clear
+php artisan config:cache
+
+# Jalankan database migration dan storage symlink
 php artisan migrate --force
 php artisan storage:link
 
-# Start queue dan scheduler (jika perlu bisa di background pakai &)
+# Jalankan scheduler di background
 php artisan schedule:work &
 
-# Jalankan Laravel dengan PHP server di Railway
-php -S 0.0.0.0:8080 -t public
+# Jalankan Laravel server
+php artisan serve --host=0.0.0.0 --port=8080
