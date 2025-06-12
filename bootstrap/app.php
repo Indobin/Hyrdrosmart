@@ -19,7 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'auth' => AuthMiddleware::class
         ]);
-        $middleware->append(ForceHttpsNgrok::class);
+        // $middleware->append(ForceHttpsNgrok::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
